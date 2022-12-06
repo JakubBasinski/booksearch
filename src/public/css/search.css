@@ -1,0 +1,38 @@
+.radiobutton_help {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.formColumn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#userInput {
+  width: 15rem;
+}
+
+.row {
+  margin-top: 5rem;
+}
+
+.alert {
+  display: flex;
+  justify-content: center;
+}
+
+.btn__search {
+  margin-top: 1rem;
+  border-color: #451e3e;
+  color: #451e3e;
+}
+
+.btn__search:hover {
+  margin-top: 1rem;
+  background-color: #451e3e;
+  color: white;
+  border-color: white;
+}

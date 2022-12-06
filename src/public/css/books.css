@@ -1,0 +1,147 @@
+.pagination__div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination {
+  padding: 0;
+  margin: 0;
+}
+
+.page-item {
+  height: 2.375rem;
+}
+
+.page-item a {
+  color: black;
+  font-family: 'Square Peg', cursive;
+  font-size: 1.3rem;
+  height: 2.375rem;
+}
+
+.pagination__section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination__col {
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.bookList {
+  margin: 1rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-items: space-around;
+  align-items: center;
+  gap: 2rem;
+}
+
+.row {
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  min-width: 40rem;
+  min-height: 20rem;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 5px;
+  overflow: hidden;
+}
+
+.card__rightside {
+  width: 60%;
+  height: 95%;
+}
+
+.card__leftside {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  height: 95%;
+}
+
+.nomoreresults {
+  display: flex;
+  font-family: 'Square Peg', cursive;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+}
+
+.favorites__col {
+  display: flex;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fav__text {
+  height: 2.375rem;
+  font-family: 'Square Peg', cursive;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fav__list {
+  margin-top: 1rem;
+  max-width: 25rem;
+}
+
+.toggle_fav_btn {
+  background-color: #451e3e;
+  border: solid 1px #451e3e;
+}
+
+.toggle_fav_btn:hover,
+.toggle_fav_btn:focus,
+.toggle_fav_btn:active {
+  background-color: #340d2d;
+  border: solid 1px #340d2d;
+}
+
+.toggle_fav_btn1 {
+  background-color: #162f4f;
+  border: solid 1px #162f4f;
+}
+.toggle_fav_btn1:hover,
+.toggle_fav_btn1:focus,
+.toggle_fav_btn1:active {
+  background-color: #051e3e;
+  border: solid 1px #051e3e;
+}
+
+.fav__item {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Square Peg', cursive;
+  font-size: 1.5rem;
+}
+
+.fav_button {
+  background-color: transparent;
+  border: none;
+}
+
+.bi:hover {
+  color: red;
+}

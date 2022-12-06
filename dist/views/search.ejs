@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="/css/search.css" />
+
+<div class="container">
+
+  <% if(validationError.length > 0) { %>
+    <div class="row d-flex justify-content-center mt-5">
+      <div class="col-6 d-flex justify-content-center">
+        <div class="alert alert-danger" role="alert">
+          <%= validationError[0].msg %>
+        </div>
+      </div>
+    </div>
+    <% } %>
+
+  <form action="/search" method="post">
+    <div class="row d-flex justify-content-center">
+      <div class="formColumn col-6">
+        <div class="left">
+          <input
+            type="text"
+            class="form-control"
+            id="userInput"
+            name="userInput"
+            required
+          />
+          <div class="radiobutton_help form-text">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                value="intitle"
+                checked
+             
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                Title
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                value="inauthor"
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                Author
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-light btn__search">Search</button>
+        </div>
+
+        <div class="right">
+          <select
+            class="form-select"
+            name="languageSelect"
+            aria-label="Default select example"
+          >
+            <option value="pl">Pl</option>
+            <option value="en">En</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,57 @@
+
+<link rel="stylesheet" href="/css/signup.css" />
+<div class="container">
+  <% if(errorMessage.length > 0 && errorMessage !== '') { %>
+    <div class="row d-flex justify-content-center mt-5">
+      <div class="col-6 d-flex justify-content-center">
+        <div class="alert alert-danger" role="alert"><%= errorMessage[0] %></div>
+      </div>
+    </div>
+    <% } %>
+    <% if(validationError.length > 0) { %>
+    <div class="row d-flex justify-content-center mt-5">
+      <div class="col-6 d-flex justify-content-center">
+        <div class="alert alert-danger" role="alert">
+          <%= validationError[0].msg %>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  <div class="row  justify-content-center mt-5">
+    <div class="col-6 " id="description">
+      Login Form
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center mt-2">
+    <div class="col-6">
+      <form action="/login" method="POST">
+        <div class="form-group">
+        <div class="form-group">
+          <label for="inputEmail">Email address</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control form_input"
+            id="inputEmail"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="inputPassword ">Password</label>
+          <input
+            name="password"
+            type="password"
+            class="form-control form_input"
+            id="inputPassword"
+            aria-describedby="emailHelp"
+            placeholder="Enter password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

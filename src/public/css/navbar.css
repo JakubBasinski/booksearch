@@ -1,0 +1,31 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #451e3e;
+  height: 4.5rem;
+}
+
+.navbar a {
+  color: white;
+}
+
+.navbar a:hover {
+  color: #851e3e;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  gap: 1.5rem;
+  font-size: 1.4rem;
+  font-family: 'Benne', serif;
+}
+
+
+.navbar-brand {
+  font-family: 'Square Peg', cursive;
+  font-size: 2rem;
+}

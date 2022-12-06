@@ -1,0 +1,116 @@
+<link rel="stylesheet" href="/css/books.css" />
+
+<div class="row d-flex justify-content-center">
+  <% if( currentPage > totalPages || currentPage < 1 ) { %>
+    <div class="col-6 mt-5 nomoreresults justify-content-center">
+      <div class="alert alert-danger" role="alert">
+        No results !
+      </div>
+    </div>
+  <% } else { %> 
+    <div class="col-6 pagination__col d-flex justify-content-center">
+      <section clas="pagination__section">
+        <ul class="pagination">
+          <% if(currentPage > 1) { %>  
+            <li class="page-item">
+              <a class="page-link" href="./<%= lang %>?page=<%= currentPage - 1%>" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+          <% } %>  
+
+          <% if(currentPage < totalPages && currentPage > 1 ) { %> 
+            <li class="page-item "><a class="page-link fw-bold" href="./<%= lang %>?page=<%= currentPage - 1%>"><%= currentPage - 1 %></a></li>
+            <li class="page-item"><a class="page-link fw-bold" href="./<%= lang %>?page=<%= currentPage  %>"><%= currentPage  %></a></li>
+            <li class="page-item"><a class="page-link fw-bold" href="./<%= lang %>?page=<%= currentPage + 1%>"><%= currentPage + 1 %></a></li>
+          <% } else if (currentPage === 1) { %>
+            <li class="page-item"><a class="page-link fw-bold" href="./<%= lang %>?page=<%= currentPage%>"><%= currentPage %></a></li>
+            <li class="page-item"><a class="page-link fw-bold" href="./<%= lang %>?page=<%= currentPage +1 %>"><%= currentPage +1 %></a></li>
+            <li class="page-item"><a class="page-link fw-bold" href="./<%= lang %>?page=<%= currentPage + 2%>"><%= currentPage + 2 %></a></li>
+          <% } else if(currentPage === 8 ) { %>
+          <li class="page-item"><a class="page-link fw-bold" href="./<%= lang %>?page=<%= totalPages -2 %>"><%= totalPages -2 %></a></li>
+          <li class="page-item"><a class="page-link fw-bold" href="./<%= lang %>?page=<%= totalPages -1 %>"><%= totalPages -1 %></a></li>
+          <li class="page-item"><a class="page-link fw-bold" href="./<%= lang %>?page=<%= totalPages %>"><%= totalPages %></a></li>  
+         <% } %>
+         
+          <% if(currentPage < 8) { %>  
+            <li class="page-item">
+              <a class="page-link" href="./<%= lang %>?page=<%= currentPage + 1%>" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          <% } %>
+        </ul>
+      </section>
+
+      <section class="bookList">
+        <% if (books) { %> 
+            <% for (let book of books) { %>
+            <form action="/favorites/<%= book.volumeInfo.title %>/<%= book.id %>">
+              <div class="card" style="width: 18rem">
+                <div class="card__rightside">
+                    <div class="card-body">
+                        <h4 class="card-title"><%= book.volumeInfo.title %></h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Year of publication:</h6>
+                        <% if(book.volumeInfo.publishedDate) { %>
+                        <p class="card-text">
+                        <%= book.volumeInfo.publishedDate.split('-')[0] %>
+                        </p>
+                        <% } else { %>
+                        <p class="card-text">Not provided</p>
+                        <% } %>
+                        <h6 class="card-subtitle mb-2 text-muted">Descritpion:</h6>
+                        <% if (!book.volumeInfo.description || book.volumeInfo.description
+                        == "") { %>
+                        <p class="card-text">Not provided</p>
+                        <% } else { %>
+                        <p class="card-tex">
+                        <%= book.volumeInfo.description =
+                        book.volumeInfo.description.substring(0, 200) + "..." %>
+                        </p>
+                        <% } %>
+                        <% let isInFav = favorites.filter((obj) => {
+                          return obj.id == book.id;
+                        });
+                        if(isInFav.length < 1) { %>
+                        <button type="submit" href="" class="btn toggle_fav_btn btn-info">Add to Favorites</a>
+                        <% } else { %>
+                          <button type="submit" href="" class="btn toggle_fav_btn1 btn-info">Remove from Favorites</a>
+                        <% } %>
+                          
+                    </div>
+                </div>
+                <div class="card__leftside">
+
+                    <% if (!book.volumeInfo.imageLinks) { %>
+                    <div>   Cover not provided  </div>
+                    <% } else { %>
+                    <img
+                    id="cover"
+                    class="card-img-top"
+                    alt="Card image cap"
+                    src="<%= book.volumeInfo.imageLinks.thumbnail%>"
+                    />
+                   <% } %>
+                </div>
+              </div>
+            </form>
+            <% } %> 
+        <% } %>
+    </section>
+  </div> 
+  <% } %>
+
+  <div class="col-4 favorites__col">
+    <div class="fav__text fw-bold">List of favorites:</div>
+    <ul class="fav__list list-group">
+      <% for( let i = 0 ; i < favorites.length ; i++ ) { %>
+          <li class="list-group-item fav__item">"<%= favorites[i].title %>"<form action="/favorites/<%= favorites[i].title %>/<%= favorites[i].id %>"><button typ="submit" class="fav_button"><i class="bi bi-x-square"></i></button></form> </li>
+      <% } %>
+    </ul>
+  </div>
+
+</div>
+
+
